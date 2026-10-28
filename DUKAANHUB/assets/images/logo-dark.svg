@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" fill="none">
+  <defs>
+    <linearGradient id="brandGradD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="55%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="iconGradD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glowD" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#7c3aed" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect x="2" y="4" width="52" height="52" rx="14" fill="url(#brandGradD)" filter="url(#glowD)"/>
+  <ellipse cx="28" cy="14" rx="18" ry="7" fill="white" opacity="0.15"/>
+
+  <path d="M14 26 L28 16 L42 26 Z" fill="white" opacity="0.95"/>
+  <rect x="22" y="32" width="12" height="13" rx="3" fill="white" opacity="0.9"/>
+  <rect x="15" y="28" width="7" height="6" rx="2" fill="url(#iconGradD)" opacity="0.9"/>
+  <rect x="34" y="28" width="7" height="6" rx="2" fill="url(#iconGradD)" opacity="0.9"/>
+  <circle cx="31" cy="39" r="1.2" fill="url(#brandGradD)" opacity="0.9"/>
+
+  <!-- "Dukaan" in WHITE for dark bg -->
+  <text x="66" y="34"
+        font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif"
+        font-size="26"
+        font-weight="800"
+        letter-spacing="-0.5"
+        fill="#ffffff">Dukaan</text>
+
+  <!-- "Hub" in gradient -->
+  <text x="172" y="34"
+        font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif"
+        font-size="26"
+        font-weight="800"
+        letter-spacing="-0.5"
+        fill="url(#brandGradD)">Hub</text>
+
+  <text x="67" y="47"
+        font-family="'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif"
+        font-size="8"
+        font-weight="700"
+        letter-spacing="2.5"
+        fill="#a78bfa"
+        opacity="0.85">EXCLUSIVE LUXURY STORE</text>
+
+  <circle cx="218" cy="22" r="5" fill="#7c3aed"/>
+  <path d="M215.5 22 L217.2 23.8 L220.5 20.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

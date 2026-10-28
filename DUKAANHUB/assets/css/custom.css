@@ -1,0 +1,523 @@
+/* ========================================================
+   DukaanHub - Ultra-Modern Adaptive E-Commerce Styling
+   Dual-Engine: High-Contrast Pure White & Obsidian Dark
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* ========================================================
+   1. PURE WHITE MODE (High-Contrast & Crystal Legibility)
+   ======================================================== */
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Titles and Headings in White Mode */
+html:not(.dark) h1:not(.keep-white), 
+html:not(.dark) h2:not(.keep-white), 
+html:not(.dark) h3:not(.keep-white), 
+html:not(.dark) h4:not(.keep-white),
+html:not(.dark) h5:not(.keep-white),
+html:not(.dark) .theme-adaptive-title,
+html:not(.dark) .theme-text-title,
+html:not(.dark) .glass-card h3,
+html:not(.dark) .glass-card h4 {
+  color: #0f172a !important;
+}
+
+/* Muted / Subtitle text in White Mode */
+html:not(.dark) .theme-adaptive-sub,
+html:not(.dark) .theme-text-muted,
+html:not(.dark) p.text-zinc-400,
+html:not(.dark) span.text-zinc-400,
+html:not(.dark) .glass-card p {
+  color: #475569 !important;
+}
+
+/* Panels and Cards in White Mode */
+html:not(.dark) .glass-panel {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .glass-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .glass-card:hover {
+  transform: translateY(-3px);
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 12px 25px -4px rgba(139, 92, 246, 0.12) !important;
+}
+
+/* Hero Section in White Mode: Radiant Pearl Luxury Card */
+html:not(.dark) .hero-luxury-banner {
+  background: linear-gradient(135deg, #ffffff 0%, #f6f4ff 50%, #eef2ff 100%) !important;
+  border: 1.5px solid #ddd6fe !important;
+  box-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.12) !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) .hero-luxury-banner h1 {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .hero-luxury-banner p {
+  color: #475569 !important;
+}
+
+html:not(.dark) .hero-badge-pill {
+  background: #ede9fe !important;
+  color: #6d28d9 !important;
+  border: 1px solid #ddd6fe !important;
+}
+
+html:not(.dark) .hero-stat-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .hero-stat-card p.stat-label {
+  color: #64748b !important;
+}
+
+/* Top bar and borders */
+html:not(.dark) .top-banner-bar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+html:not(.dark) .theme-border {
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .theme-subtle-bg {
+  background-color: #f1f5f9 !important;
+}
+
+/* Inputs, Selects, Textareas in White Mode */
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+html:not(.dark) input:focus,
+html:not(.dark) select:focus,
+html:not(.dark) textarea:focus {
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Zinc overrides for White Mode to eliminate dark ugly boxes */
+html:not(.dark) .bg-zinc-900,
+html:not(.dark) .bg-zinc-800,
+html:not(.dark) .bg-zinc-950 {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-zinc-900\/60,
+html:not(.dark) .bg-zinc-900\/80,
+html:not(.dark) .bg-zinc-900\/90 {
+  background-color: #f8fafc !important;
+}
+
+html:not(.dark) .border-zinc-800,
+html:not(.dark) .border-zinc-700,
+html:not(.dark) .border-zinc-800\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) .text-zinc-100,
+html:not(.dark) .text-zinc-200,
+html:not(.dark) .text-zinc-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .text-zinc-400,
+html:not(.dark) .text-zinc-500 {
+  color: #64748b !important;
+}
+
+/* BUTTONS AND BADGES MUST ALWAYS KEEP PURE CRISP WHITE TEXT */
+.bg-violet-600,
+.bg-violet-700,
+.bg-rose-500,
+.bg-rose-600,
+.bg-emerald-600,
+.btn-primary,
+.cart-badge,
+.wishlist-badge,
+.badge-solid,
+button.bg-violet-600,
+a.bg-violet-600,
+button.bg-rose-600,
+a.bg-rose-600 {
+  color: #ffffff !important;
+}
+
+.bg-violet-600 *,
+.bg-violet-700 *,
+.bg-rose-500 *,
+.bg-rose-600 *,
+.btn-primary * {
+  color: #ffffff !important;
+}
+
+/* Category Quick Navigation Pills */
+html:not(.dark) .product-pill-cat {
+  background-color: #ffffff !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+html:not(.dark) .product-pill-cat:hover {
+  background-color: #f5f3ff !important;
+  color: #7c3aed !important;
+  border-color: #c4b5fd !important;
+}
+html:not(.dark) .product-pill-cat.active {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
+}
+html:not(.dark) .product-pill-cat.active * {
+  color: #ffffff !important;
+}
+
+/* Tables in White Mode */
+html:not(.dark) table thead tr {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+html:not(.dark) table tbody tr {
+  border-color: #e2e8f0 !important;
+}
+html:not(.dark) table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+html:not(.dark) table td,
+html:not(.dark) table th {
+  border-color: #e2e8f0 !important;
+}
+
+/* Cart Drawer */
+html:not(.dark) #cart-drawer {
+  background-color: #ffffff !important;
+  border-left: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html:not(.dark) #cart-drawer h3,
+html:not(.dark) #cart-drawer h4 {
+  color: #0f172a !important;
+}
+
+/* Admin Sidebar */
+html:not(.dark) #admin-sidebar {
+  background-color: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html:not(.dark) #admin-sidebar a {
+  color: #475569 !important;
+}
+html:not(.dark) #admin-sidebar a:hover,
+html:not(.dark) #admin-sidebar a.active {
+  background-color: #f5f3ff !important;
+  color: #7c3aed !important;
+}
+
+/* Footer */
+html:not(.dark) footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+html:not(.dark) footer h4,
+html:not(.dark) footer .font-display {
+  color: #0f172a !important;
+}
+html:not(.dark) footer a {
+  color: #64748b !important;
+}
+html:not(.dark) footer a:hover {
+  color: #7c3aed !important;
+}
+
+/* Popups & Modals */
+html:not(.dark) .login-modal-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* ========================================================
+   2. OBSIDIAN DARK MODE (Sleek, Luxury & Deep Black)
+   ======================================================== */
+html.dark body {
+  background-color: #090d16 !important;
+  color: #f8fafc !important;
+}
+
+html.dark h1, 
+html.dark h2, 
+html.dark h3, 
+html.dark h4, 
+html.dark h5,
+html.dark .theme-adaptive-title,
+html.dark .theme-text-title {
+  color: #ffffff !important;
+}
+
+html.dark .theme-adaptive-sub,
+html.dark .theme-text-muted,
+html.dark p.text-zinc-400,
+html.dark span.text-zinc-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .glass-card {
+  background: #111726 !important;
+  border: 1px solid #1e293b !important;
+}
+
+html.dark .glass-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.25) !important;
+}
+
+/* Dark Mode Hero Banner */
+html.dark .hero-luxury-banner {
+  background: linear-gradient(135deg, #100f24 0%, #0c101c 60%, #161c2e 100%) !important;
+  border: 1px solid rgba(139, 92, 246, 0.35) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5) !important;
+  color: #ffffff !important;
+}
+
+html.dark .hero-luxury-banner h1 {
+  color: #ffffff !important;
+}
+
+html.dark .hero-luxury-banner p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .hero-badge-pill {
+  background: rgba(139, 92, 246, 0.2) !important;
+  color: #c4b5fd !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+}
+
+html.dark .hero-stat-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .hero-stat-card p.stat-label {
+  color: #cbd5e1 !important;
+}
+
+html.dark .top-banner-bar {
+  background: #0b0f19 !important;
+  border-bottom: 1px solid #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .theme-border {
+  border-color: #1e293b !important;
+}
+
+html.dark .theme-subtle-bg {
+  background-color: #0b0f19 !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0b0f19 !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b !important;
+}
+
+html.dark #cart-drawer {
+  background-color: #0f172a !important;
+  border-left: 1px solid #1e293b !important;
+  color: #f8fafc !important;
+}
+
+html.dark #admin-sidebar {
+  background-color: #090d16 !important;
+  border-right: 1px solid #1e293b !important;
+  color: #f8fafc !important;
+}
+
+html.dark footer {
+  background-color: #090d16 !important;
+  border-top: 1px solid #1e293b !important;
+}
+
+html.dark .login-modal-box {
+  background: #111726 !important;
+  border: 1px solid #1e293b !important;
+  color: #f8fafc !important;
+}
+
+html.dark .product-pill-cat {
+  background-color: #1e293b !important;
+  color: #94a3b8 !important;
+  border-color: #334155 !important;
+}
+html.dark .product-pill-cat:hover,
+html.dark .product-pill-cat.active {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+  border-color: #7c3aed !important;
+}
+html.dark .product-pill-cat.active * {
+  color: #ffffff !important;
+}
+
+/* ========================================================
+   3. THEME TOGGLE SWITCH BUTTON (High Visibility)
+   ======================================================== */
+.theme-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+html:not(.dark) .theme-switch-btn {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+html:not(.dark) .theme-switch-btn:hover {
+  border-color: #7c3aed;
+  background: #f8fafc;
+}
+
+html.dark .theme-switch-btn {
+  background: #1e293b;
+  border: 1.5px solid #334155;
+  color: #f8fafc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+html.dark .theme-switch-btn:hover {
+  border-color: #a78bfa;
+  background: #27354a;
+}
+
+/* ========================================================
+   4. INTERACTIVE ELEMENTS & ANIMATIONS
+   ======================================================== */
+button, .btn-interactive {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:active, .btn-interactive:active {
+  transform: scale(0.97);
+}
+
+/* Product Card Image Zoom */
+.product-card-img-wrapper {
+  overflow: hidden;
+}
+.product-card-img-wrapper img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .product-card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 9999px;
+}
+
+/* Modern Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modern-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(15px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

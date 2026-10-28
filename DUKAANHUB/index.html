@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Curated Luxury Store | DukaanHub - Premium E-Commerce Hub</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        },
+                        darkbg: '#090d16',
+                        darkcard: '#111726',
+                        darkborder: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Adaptive CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-gray-50 dark:bg-darkbg text-slate-800 dark:text-slate-100 min-h-screen flex flex-col selection:bg-violet-500 selection:text-white">
+
+    <!-- Top Announcement & Contact Bar -->
+    <div class="top-banner-bar text-xs py-2 px-4 border-b transition-colors">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            
+            <!-- Left Contact Info -->
+            <div class="flex items-center gap-4 text-slate-600 dark:text-slate-300">
+                <span class="inline-flex items-center gap-1.5 font-semibold text-violet-600 dark:text-violet-400">
+                    <i class="fa-solid fa-store"></i> DukaanHub Official
+                </span>
+                <span class="hidden sm:inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                    <i class="fa-solid fa-envelope text-violet-500"></i> Salmansahaneabdi@gmail.com
+                </span>
+                <span class="hidden md:inline-flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                    <i class="fa-solid fa-phone text-emerald-500"></i> +252 61 387 8223
+                </span>
+            </div>
+
+            <!-- Right Controls: Dark/White Toggle Switch -->
+            <div class="flex items-center gap-2.5">
+                <!-- High-Visibility Dark / White Mode Switch Button -->
+                <button type="button" onclick="toggleTheme()" class="theme-switch-btn" title="Toggle White/Dark Mode">
+                    <i class="theme-toggle-icon fa-solid fa-moon text-violet-400"></i>
+                    <span class="theme-toggle-text">Dark Mode</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b transition-colors backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20 gap-4">
+                
+                <!-- Brand Logo: DukaanHub SVG -->
+                <a href="index.php" class="group flex items-center group-hover:opacity-90 transition-opacity" title="DukaanHub - Home">
+                    <!-- White Mode Logo -->
+                    <img src="assets/images/logo.svg" alt="DukaanHub" class="h-12 sm:h-14 w-auto block dark:hidden group-hover:scale-105 transition-transform duration-200" style="max-width:200px;">
+                    <!-- Dark Mode Logo -->
+                    <img src="assets/images/logo-dark.svg" alt="DukaanHub" class="h-12 sm:h-14 w-auto hidden dark:block group-hover:scale-105 transition-transform duration-200" style="max-width:200px;">
+                </a>
+
+                <!-- Search Input Bar -->
+                <form action="shop.php" method="GET" class="hidden md:flex flex-1 max-w-md mx-4">
+                    <div class="relative w-full">
+                        <input type="text" name="search" value="" placeholder="Search 31+ luxury products, sneakers, watches, electronics..." 
+                               class="w-full pl-11 pr-4 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 transition shadow-inner">
+                        <button type="submit" class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-violet-500 transition">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold">
+                    <a href="index.php" class="text-slate-700 dark:text-slate-200 hover:text-violet-600 dark:hover:text-violet-400 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-house text-xs"></i> Home
+                    </a>
+                    <a href="#shop" class="text-slate-700 dark:text-slate-200 hover:text-violet-600 dark:hover:text-violet-400 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-bag-shopping text-xs"></i> Shop All
+                    </a>
+                    <a href="shop.php?deal=1" class="text-amber-500 hover:text-amber-400 transition flex items-center gap-1.5 font-bold">
+                        <i class="fa-solid fa-bolt text-xs"></i> Flash Deals
+                    </a>
+                    <a href="admin/index.php" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-violet-600/30 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-gauge-high text-amber-300"></i> Admin Dashboard
+                    </a>
+                </nav>
+
+                <!-- Right Action Buttons -->
+                <div class="flex items-center gap-3">
+                    
+                    <!-- Wishlist Button -->
+                    <a href="shop.php?wishlist=1" class="relative p-2.5 rounded-xl border theme-border hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-700 dark:text-slate-300" title="Wishlist">
+                        <i class="fa-regular fa-heart text-lg"></i>
+                        <span class="wishlist-badge absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-500 text-[11px] font-bold text-white flex items-center justify-center shadow-md">0</span>
+                    </a>
+
+                    <!-- Cart Drawer Button -->
+                    <button type="button" onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-violet-600/10 hover:bg-violet-600/20 text-violet-600 dark:text-violet-400 border border-violet-500/30 transition flex items-center gap-2" title="Cart Bag">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span class="cart-badge w-5 h-5 rounded-full bg-violet-600 text-[11px] font-bold text-white flex items-center justify-center shadow-md shadow-violet-600/50">0</span>
+                    </button>
+
+                    <!-- User Account Dropdown / Login Button -->
+                                        <div class="relative group">
+                        <button class="flex items-center gap-2 p-1.5 rounded-xl border theme-border hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                            <img src="assets/images/salman.jpg" 
+                                 alt="Avatar" class="w-8 h-8 rounded-lg object-cover">
+                            <span class="hidden md:inline text-xs font-bold max-w-[100px] truncate text-slate-800 dark:text-slate-200">Salman Sahane Abdi</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 pr-1"></i>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="absolute right-0 mt-2 w-56 rounded-2xl glass-panel shadow-2xl border theme-border py-2 hidden group-hover:block transition-all z-50">
+                            <div class="px-4 py-2 border-b theme-border">
+                                <p class="text-xs text-slate-400">Signed in as</p>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white truncate">Salman Sahane Abdi</p>
+                                <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-violet-500/20 text-violet-600 dark:text-violet-300">
+                                    admin                                </span>
+                            </div>
+                                                        <a href="admin/index.php" class="flex items-center gap-2 px-4 py-2.5 text-xs text-violet-600 dark:text-violet-400 hover:bg-violet-600/10 transition font-medium">
+                                <i class="fa-solid fa-gauge-high"></i> Admin Dashboard
+                            </a>
+                                                        <a href="my-orders.php" class="flex items-center gap-2 px-4 py-2.5 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                                <i class="fa-solid fa-clock-rotate-left"></i> My Orders & Receipts
+                            </a>
+                            <a href="logout.php" class="flex items-center gap-2 px-4 py-2.5 text-xs text-rose-500 hover:bg-rose-500/10 transition border-t theme-border mt-1 font-semibold">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Menu Hamburger Button -->
+                    <button type="button" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" class="lg:hidden p-2 rounded-xl border theme-border text-slate-700 dark:text-slate-300">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav" class="hidden lg:hidden border-t theme-border px-4 py-4 space-y-3 glass-panel">
+            <form action="shop.php" method="GET" class="mb-4">
+                <input type="text" name="search" placeholder="Search products..." class="w-full px-4 py-2 rounded-xl border text-sm">
+            </form>
+            <a href="index.php" class="block py-2 text-sm font-semibold hover:text-violet-600">Home</a>
+            <a href="#shop" class="block py-2 text-sm font-semibold hover:text-violet-600">Shop Catalog</a>
+            <a href="shop.php?deal=1" class="block py-2 text-sm font-semibold text-amber-500 hover:text-amber-400">Flash Deals</a>
+            <a href="#cart" class="block py-2 text-sm font-semibold hover:text-violet-600">Shopping Bag (0)</a>
+            <a href="admin/index.php" class="block py-2 text-sm font-bold text-violet-600 dark:text-violet-400">
+                <i class="fa-solid fa-gauge-high mr-1.5"></i> Admin Dashboard
+            </a>
+        </div>
+    </header>
+
+    <!-- Session Flash Message Toasts -->
+    
+    <!-- Main Content Area Starts -->
+    <main class="flex-grow">
+
+<!-- Compact Luxury Hero Banner (Adaptive Dual-Engine: Radiant Pearl in White Mode / Obsidian Luxury in Dark Mode) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <div class="relative rounded-3xl p-6 sm:p-8 overflow-hidden hero-luxury-banner transition-colors duration-200">
+        <!-- Ambient Glow -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-violet-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute right-1/3 -bottom-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <!-- Left Info -->
+            <div class="max-w-2xl space-y-3 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hero-badge-pill text-xs font-bold transition">
+                    <i class="fa-solid fa-sparkles text-amber-500"></i> Welcome to DukaanHub • The Premier Luxury Marketplace
+                </div>
+
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
+                    Curated Luxury & <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 dark:from-violet-400 dark:via-indigo-300 dark:to-cyan-400">Tech Excellence</span>
+                </h1>
+
+                <p class="text-xs sm:text-sm leading-relaxed font-normal">
+                    Experience genuine flagship laptops, titanium timepieces, spatial VR headsets, and designer streetwear with instant 1-click cart and express worldwide shipping.
+                </p>
+
+                <!-- Action Links -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1">
+                    <a href="#shop" class="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs shadow-lg shadow-violet-600/30 transition flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i> Explore 31+ Products
+                    </a>
+                    <a href="shop.php?deal=1" class="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs border border-slate-300 dark:border-slate-700 shadow-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-500"></i> Flash Deals
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Fast Badges -->
+            <div class="grid grid-cols-2 gap-3 w-full md:w-auto">
+                <div class="p-3.5 rounded-2xl hero-stat-card text-center transition">
+                    <p class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-300 dark:to-cyan-300">31+</p>
+                    <p class="stat-label text-[10px] font-bold uppercase tracking-wider mt-0.5">Luxury Items</p>
+                </div>
+                <div class="p-3.5 rounded-2xl hero-stat-card text-center transition">
+                    <p class="text-xl sm:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">100%</p>
+                    <p class="stat-label text-[10px] font-bold uppercase tracking-wider mt-0.5">Authentic Stock</p>
+                </div>
+                <div class="p-3.5 rounded-2xl hero-stat-card text-center transition">
+                    <p class="text-xl sm:text-2xl font-extrabold text-amber-500 dark:text-amber-400">4.9 ★</p>
+                    <p class="stat-label text-[10px] font-bold uppercase tracking-wider mt-0.5">VIP Rating</p>
+                </div>
+                <div class="p-3.5 rounded-2xl hero-stat-card text-center transition">
+                    <p class="text-xl sm:text-2xl font-extrabold text-cyan-600 dark:text-cyan-400">Free</p>
+                    <p class="stat-label text-[10px] font-bold uppercase tracking-wider mt-0.5">Fast Shipping</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Category Quick Navigation Pills (Well-Separated & Crisp) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Browse Collections</h3>
+        <a href="#shop" class="text-xs font-bold text-violet-500 hover:underline">View All &rarr;</a>
+    </div>
+
+    <div class="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none">
+        <a href="index.php" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap active">
+            <i class="fa-solid fa-border-all"></i> All Categories (31)
+        </a>
+                    <a href="index.php?category=electronics" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-laptop"></i> Electronics            </a>
+                    <a href="index.php?category=fashion" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-shirt"></i> Fashion &amp; Apparel            </a>
+                    <a href="index.php?category=smart-watches" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-stopwatch"></i> Smart Watches            </a>
+                    <a href="index.php?category=footwear" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-shoe-prints"></i> Footwear &amp; Sneakers            </a>
+                    <a href="index.php?category=accessories" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-glasses"></i> Luxury Accessories            </a>
+                    <a href="index.php?category=gaming" class="product-pill-cat px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center gap-2 whitespace-nowrap ">
+                <i class="fa-solid fa-gamepad"></i> Gaming &amp; VR            </a>
+            </div>
+</section>
+
+<!-- Flash Deals Highlight Bar (Compact) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+    <div class="p-4 rounded-2xl glass-card border theme-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-bolt"></i>
+            </span>
+            <div>
+                <h4 class="text-sm font-bold theme-text-title">Flash Deals & Limited Edition Drops</h4>
+                <p class="text-xs theme-text-muted">Save up to 40% on top electronics, sneakers, and luxury items today.</p>
+            </div>
+        </div>
+        <a href="shop.php?deal=1" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow transition flex items-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-fire"></i> Shop All Deals
+        </a>
+    </div>
+</section>
+
+<!-- Curated Product Catalog Grid (Compact, Well-Separated, Highly Legible) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold theme-text-title">
+                Featured Luxury Products            </h2>
+            <p class="text-xs theme-text-muted mt-0.5">Showing 16 authentic hand-crafted products in DukaanHub</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <a href="#shop" class="px-3.5 py-1.5 rounded-xl border theme-border text-xs font-semibold theme-text-muted hover:theme-text-title transition">
+                <i class="fa-solid fa-filter mr-1"></i> Advanced Filters
+            </a>
+            <a href="shop.php?sort=price_low" class="px-3.5 py-1.5 rounded-xl border theme-border text-xs font-semibold theme-text-muted hover:theme-text-title transition">
+                <i class="fa-solid fa-arrow-down-short-wide mr-1"></i> Sort
+            </a>
+        </div>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Sony WH-1000XM5 Noise-Canceling Headphones" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                BESTSELLER                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(1)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(1, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Electronics</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=1">
+                                Sony WH-1000XM5 Noise-Canceling Headphones                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $349.99                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $399.99                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(1, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Apple Watch Ultra 2 Titanium Edition" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                PREMIUM                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(2)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(2, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Smart Watches</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=2">
+                                Apple Watch Ultra 2 Titanium Edition                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $799.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $849.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(2, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Nike Air Jordan 1 Retro High OG - Crimson" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                HOT DEAL                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(3)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(3, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Footwear &amp; Sneakers</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.8                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=3">
+                                Nike Air Jordan 1 Retro High OG - Crimson                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $189.99                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $220.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(3, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="MacBook Pro 16&quot; M3 Max Space Black" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                FLAGSHIP                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(4)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(4, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Electronics</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=4">
+                                MacBook Pro 16&quot; M3 Max Space Black                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $2,899.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $3,199.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(4, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Bottega Veneta Intrecciato Leather Backpack" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                LUXURY                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(5)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(5, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Luxury Accessories</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=5">
+                                Bottega Veneta Intrecciato Leather Backpack                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $1,250.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $1,450.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(5, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="PlayStation 5 Pro Horizon Bundle" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                TRENDING                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(7)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(7, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Gaming &amp; VR</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=7">
+                                PlayStation 5 Pro Horizon Bundle                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $599.99                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $649.99                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(7, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Tag Heuer Carrera Chronograph Automatic" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                EXCLUSIVE                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(9)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(9, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Smart Watches</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=9">
+                                Tag Heuer Carrera Chronograph Automatic                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $4,850.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $5,200.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(9, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Leica Q3 Full-Frame Compact Camera" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                MASTERPIECE                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(11)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(11, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Electronics</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=11">
+                                Leica Q3 Full-Frame Compact Camera                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $5,995.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $6,300.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(11, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Apple iPhone 16 Pro Max 1TB Natural Titanium" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                NEW FLAGSHIP                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(13)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(13, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Electronics</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=13">
+                                Apple iPhone 16 Pro Max 1TB Natural Titanium                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $1,599.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $1,699.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(13, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="DJI Mavic 3 Pro Cine Drone with Hasselblad Triple Camera" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                PRO GEAR                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(14)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(14, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Electronics</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=14">
+                                DJI Mavic 3 Pro Cine Drone with Hasselblad Triple Camera                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $3,899.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $4,199.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(14, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1622979135225-d2ba269bc1df?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Meta Quest 3 512GB Mixed Reality Spatial VR Headset" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                SPATIAL VR                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(15)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(15, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Gaming &amp; VR</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.8                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=15">
+                                Meta Quest 3 512GB Mixed Reality Spatial VR Headset                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $649.99                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $699.99                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(15, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Cyberpunk Liquid-Cooled RTX 4090 Battlestation Rig" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                ULTIMATE PC                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(16)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(16, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Gaming &amp; VR</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=16">
+                                Cyberpunk Liquid-Cooled RTX 4090 Battlestation Rig                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $4,499.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $4,899.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(16, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Samsung Odyssey Neo G9 49&quot; Curved OLED Gaming Monitor" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                240HZ DUAL 4K                            </span>
+                                                                            <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-rose-600 text-white shadow-sm">
+                                SALE
+                            </span>
+                                            </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(17)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(17, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Gaming &amp; VR</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=17">
+                                Samsung Odyssey Neo G9 49&quot; Curved OLED Gaming Monitor                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $1,799.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $2,199.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(17, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1547996160-71dfa63096fe?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Rolex Submariner Date 41mm Oystersteel &amp; Black Cerachrom" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                HOROLOGY ICON                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(19)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(19, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Smart Watches</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=19">
+                                Rolex Submariner Date 41mm Oystersteel &amp; Black Cerachrom                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $14,250.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $15,500.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(19, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Travis Scott x Air Jordan 1 Low OG &quot;Reverse Mocha&quot;" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                GRAIL SNEAKER                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(20)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(20, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Footwear &amp; Sneakers</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 4.9                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=20">
+                                Travis Scott x Air Jordan 1 Low OG &quot;Reverse Mocha&quot;                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $1,150.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $1,300.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(20, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="group glass-card rounded-2xl overflow-hidden flex flex-col transition-all duration-200">
+                
+                <!-- Product Image & Badges -->
+                <div class="relative product-card-img-wrapper aspect-square bg-slate-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&amp;fit=crop&amp;w=900&amp;q=80" 
+                         alt="Saint Laurent Classic Lambskin Leather Biker Jacket" 
+                         loading="lazy"
+                         class="w-full h-full object-cover">
+
+                    <!-- Top Floating Badges -->
+                    <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10">
+                                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-violet-600 text-white shadow-sm">
+                                COUTURE                            </span>
+                                                                    </div>
+
+                    <!-- Quick Action Overlay Buttons -->
+                    <div class="absolute top-2.5 right-2.5 flex flex-col gap-1.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <button type="button" onclick="openQuickView(22)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-violet-600 shadow-md flex items-center justify-center text-xs transition" title="Quick View">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                        <button type="button" onclick="toggleWishlist(22, this)" class="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-rose-500 shadow-md flex items-center justify-center text-xs transition" title="Save to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Body Details -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <!-- Category & Rating -->
+                        <div class="flex items-center justify-between text-[11px] mb-1">
+                            <span class="font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider">Fashion &amp; Apparel</span>
+                            <span class="flex items-center gap-1 font-bold text-amber-500">
+                                <i class="fa-solid fa-star text-[10px]"></i> 5.0                            </span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="font-bold text-sm leading-snug line-clamp-2 mb-2 theme-text-title hover:text-violet-600 transition">
+                            <a href="product-details.php?id=22">
+                                Saint Laurent Classic Lambskin Leather Biker Jacket                            </a>
+                        </h3>
+                    </div>
+
+                    <!-- Price & Add To Cart Button -->
+                    <div class="pt-2 border-t theme-border flex items-center justify-between mt-auto">
+                        <div>
+                            <span class="text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400">
+                                $4,990.00                            </span>
+                                                            <span class="block text-[11px] text-slate-400 line-through">
+                                    $5,400.00                                </span>
+                                                    </div>
+
+                        <button type="button" onclick="handleAddToCart(22, 1, this)" class="px-3 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-600/30 transition flex items-center gap-1.5" title="Add to Bag">
+                            <i class="fa-solid fa-plus"></i> <span class="hidden sm:inline">Add</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+    <!-- View Catalog Footer Banner -->
+    <div class="mt-10 p-6 rounded-3xl glass-card border theme-border text-center">
+        <h3 class="text-base font-bold theme-text-title">Looking for something specific?</h3>
+        <p class="text-xs theme-text-muted mt-1 max-w-md mx-auto">Browse our entire catalog of 31 luxury products across Electronics, Gaming & VR, Smart Watches, Footwear, Fashion, and Accessories.</p>
+        <a href="#shop" class="inline-flex items-center gap-2 mt-4 px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-xs font-bold shadow-lg shadow-violet-600/30 hover:opacity-95 transition">
+            <i class="fa-solid fa-shop"></i> View Entire Catalog (31 Products)
+        </a>
+    </div>
+</section>
+
+<!-- Trust Badges Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl glass-card border theme-border flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold theme-text-title">Free Express Shipping</h5>
+                <p class="text-[11px] theme-text-muted">On all orders over $100</p>
+            </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card border theme-border flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold theme-text-title">100% Genuine Stock</h5>
+                <p class="text-[11px] theme-text-muted">Authentic luxury guarantee</p>
+            </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card border theme-border flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-rotate-left"></i>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold theme-text-title">30-Day Easy Returns</h5>
+                <p class="text-[11px] theme-text-muted">Hassle-free instant refunds</p>
+            </div>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card border theme-border flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold theme-text-title">24/7 VIP Assistance</h5>
+                <p class="text-[11px] theme-text-muted">Dedicated store support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+    <!-- Main Content Area Ends -->
+
+    <!-- Quick View Product Modal -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-all">
+        <div class="relative w-full max-w-3xl glass-panel rounded-3xl border theme-border shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <button type="button" onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="quickview-modal-content">
+                <!-- Dynamically Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sliding Offcanvas Cart Drawer -->
+    <div id="cart-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden transition-opacity" onclick="toggleCartDrawer()"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md border-l theme-border shadow-2xl z-50 translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b theme-border flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-violet-500 text-lg"></i>
+                <h3 class="font-bold text-base theme-text-title">Your Shopping Bag</h3>
+                <span class="cart-badge px-2 py-0.5 rounded-full text-xs font-semibold bg-violet-600/20 text-violet-600 dark:text-violet-300 border border-violet-500/30">0</span>
+            </div>
+            <button type="button" onclick="toggleCartDrawer()" class="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Body -->
+        <div class="flex-1 overflow-y-auto p-5 space-y-3" id="drawer-items-list">
+                            <div class="py-16 text-center text-slate-400">
+                    <i class="fa-solid fa-bag-shopping text-5xl mb-3 text-slate-300 dark:text-slate-600"></i>
+                    <p class="text-sm font-semibold theme-text-title">Your bag is empty</p>
+                    <p class="text-xs text-slate-400 mt-1">Explore DukaanHub's curated luxury collection</p>
+                    <a href="#shop" onclick="toggleCartDrawer()" class="inline-block mt-4 px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-violet-600 hover:bg-violet-500 transition">Start Shopping</a>
+                </div>
+                    </div>
+
+        <!-- Drawer Footer -->
+            </div>
+
+    <!-- Modern Luxury Footer -->
+    <footer class="mt-16 border-t theme-border transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Col 1: About DukaanHub -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/images/logo.svg" alt="DukaanHub" class="h-10 w-auto block dark:hidden" style="max-width:160px;">
+                        <img src="assets/images/logo-dark.svg" alt="DukaanHub" class="h-10 w-auto hidden dark:block" style="max-width:160px;">
+                    </div>
+                    <p class="text-xs theme-text-muted leading-relaxed">
+                        The ultimate destination for premium laptops, spatial VR hardware, titanium timepieces, and exclusive designer fashion.
+                    </p>
+                    <div class="text-xs text-slate-500 space-y-1 pt-1">
+                        <p><i class="fa-solid fa-envelope text-violet-500 mr-1.5"></i> Salmansahaneabdi@gmail.com</p>
+                        <p><i class="fa-solid fa-phone text-emerald-500 mr-1.5"></i> +252 61 387 8223</p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Categories -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Shop Collections</h4>
+                    <ul class="space-y-2 text-xs theme-text-muted">
+                        <li><a href="shop.php?category=electronics" class="hover:text-violet-500 transition">Electronics & Hardware</a></li>
+                        <li><a href="shop.php?category=smart-watches" class="hover:text-violet-500 transition">Smart Watches & Wearables</a></li>
+                        <li><a href="shop.php?category=footwear" class="hover:text-violet-500 transition">Footwear & Sneakers</a></li>
+                        <li><a href="shop.php?category=fashion" class="hover:text-violet-500 transition">Fashion & Apparel</a></li>
+                        <li><a href="shop.php?category=accessories" class="hover:text-violet-500 transition">Luxury Accessories</a></li>
+                        <li><a href="shop.php?category=gaming" class="hover:text-violet-500 transition">Gaming & Spatial VR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Customer Care & Quick Links -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Customer Service</h4>
+                    <ul class="space-y-2 text-xs theme-text-muted">
+                        <li><a href="my-orders.php" class="hover:text-violet-500 transition">Track Orders & Receipts</a></li>
+                        <li><a href="#cart" class="hover:text-violet-500 transition">Shopping Bag & Checkout</a></li>
+                        <li><a href="shop.php?deal=1" class="hover:text-violet-500 transition">Flash Deals & Coupons</a></li>
+                        <li><a href="forgot-password.php" class="hover:text-violet-500 transition">Reset Password (Verification)</a></li>
+                        <li><a href="admin/index.php" class="hover:text-violet-500 transition">Admin Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: VIP Newsletter -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">VIP Newsletter</h4>
+                    <p class="text-xs theme-text-muted mb-3">Subscribe to get secret drops and VIP announcements!</p>
+                    <form onsubmit="event.preventDefault(); showToast('Subscribed! Welcome to DukaanHub VIP drops.', 'success'); this.reset();" class="space-y-2">
+                        <input type="email" required placeholder="Enter your email" class="w-full px-3.5 py-2 rounded-xl border text-xs focus:outline-none focus:border-violet-500">
+                        <button type="submit" class="w-full py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs shadow-md transition">
+                            <i class="fa-solid fa-paper-plane mr-1"></i> Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Payment Badges -->
+            <div class="mt-10 pt-6 border-t theme-border flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>© 2026 <strong class="text-violet-600 dark:text-violet-400">DukaanHub</strong>. All Rights Reserved. Contact: Salmansahaneabdi@gmail.com</p>
+                <div class="flex items-center gap-4 text-lg text-slate-400">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-apple-pay"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer Toggle Script -->
+    <script>
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const backdrop = document.getElementById('cart-drawer-backdrop');
+            if (drawer && backdrop) {
+                const isOpen = !drawer.classList.contains('translate-x-full');
+                if (isOpen) {
+                    drawer.classList.add('translate-x-full');
+                    backdrop.classList.add('hidden');
+                } else {
+                    drawer.classList.remove('translate-x-full');
+                    backdrop.classList.remove('hidden');
+                }
+            }
+        }
+    </script>
+
+    <!-- Main JavaScript File -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
